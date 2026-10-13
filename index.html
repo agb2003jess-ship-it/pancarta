@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eje 03 · Territorio y Hábitat · Urcuquí</title>
+<title>Eje 04 · Gobernanza y Servicio Ciudadano · Urcuquí</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
   :root{
     --adn-morado:#5B2C8D;
     --adn-morado-oscuro:#3D1A5C;
+    --adn-morado-claro:#8B5FBF;
     --adn-amarillo:#F5C518;
     --blanco:#FFFFFF;
 
-    /* Acento de territorio: terracota + verde tierra */
-    --terr-terracota:#B5622F;
-    --terr-terracota-oscuro:#7A3F1C;
-    --terr-verde:#3E7C4A;
-    --terr-verde-claro:#6FAF7A;
-    --eje:#B5622F;              /* Terracota como color del eje 03 */
+    /* Acento de gobernanza: verde institucional + morado profundo */
+    --gob-verde:#2A7F6F;
+    --gob-verde-oscuro:#16544A;
+    --gob-verde-claro:#5FB3A1;
+    --eje:#2A7F6F;              /* Verde institucional como color del eje 04 */
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -57,9 +57,9 @@
     box-shadow:0 24px 55px rgba(0,0,0,.5);
   }
 
-  /* ---- HEADER común (morado ADN + acento terracota) ---- */
+  /* ---- HEADER común (morado ADN + acento verde institucional) ---- */
   .slide__header{
-    background:linear-gradient(90deg, var(--adn-morado) 0%, var(--terr-terracota-oscuro) 100%);
+    background:linear-gradient(90deg, var(--adn-morado) 0%, var(--gob-verde-oscuro) 100%);
     padding:16px 22px;
     display:flex;
     justify-content:space-between;
@@ -71,7 +71,7 @@
     position:absolute;
     bottom:0;left:0;right:0;
     height:3px;
-    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--terr-verde) 100%);
+    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--gob-verde-claro) 100%);
   }
   .slide__header-left{
     display:flex;
@@ -98,7 +98,7 @@
     background:var(--adn-amarillo);
     display:grid;
     place-items:center;
-    color:var(--terr-terracota-oscuro);
+    color:var(--gob-verde-oscuro);
     font-size:18px;
     box-shadow:0 0 0 3px rgba(245,197,24,.25);
   }
@@ -109,8 +109,8 @@
   .slide--portada .slide__foto{
     position:relative;
     background:
-      linear-gradient(180deg, rgba(122,63,28,.4) 0%, rgba(61,26,92,.9) 55%, rgba(61,26,92,.98) 100%),
-      url('img/fondo-via.png') center/cover;
+      linear-gradient(180deg, rgba(22,84,74,.4) 0%, rgba(61,26,92,.9) 55%, rgba(61,26,92,.98) 100%),
+      url('img/fondo-gobernanza.jpeg') center/cover;
     padding:22px 24px;
     display:flex;
     flex-direction:column;
@@ -118,7 +118,7 @@
   .slide--portada .slide__foto::after{
     content:"";
     position:absolute;inset:0;
-    background:radial-gradient(circle at 85% 15%, rgba(181,98,47,.35), transparent 50%);
+    background:radial-gradient(circle at 85% 15%, rgba(42,127,111,.35), transparent 50%);
     pointer-events:none;
   }
   .slide--portada .slide__tag{
@@ -134,7 +134,7 @@
     margin-bottom:auto;
     position:relative;
     z-index:2;
-    box-shadow:0 4px 12px rgba(181,98,47,.5);
+    box-shadow:0 4px 12px rgba(42,127,111,.5);
   }
   .slide--portada .slide__titulo{
     font-family:'Archivo Black',sans-serif;
@@ -200,12 +200,12 @@
   }
 
   /* =====================================================
-     SLIDE 2: DATO MEDIBLE (terracota + verde + morado)
+     SLIDE 2: DATO MEDIBLE (verde institucional + morado)
      ===================================================== */
   .slide--dato{
     background:
-      radial-gradient(circle at 80% 20%, rgba(181,98,47,.5), transparent 55%),
-      linear-gradient(160deg, var(--terr-terracota-oscuro) 0%, var(--adn-morado-oscuro) 100%);
+      radial-gradient(circle at 80% 20%, rgba(42,127,111,.5), transparent 55%),
+      linear-gradient(160deg, var(--gob-verde-oscuro) 0%, var(--adn-morado-oscuro) 100%);
   }
   .slide--dato .slide__body{
     padding:36px 30px 30px;
@@ -215,7 +215,7 @@
     position:relative;
   }
   .slide--dato .slide__body::before{
-    content:"\f018";           /* road */
+    content:"\f24e";           /* balance-scale */
     font-family:"Font Awesome 6 Free";
     font-weight:900;
     position:absolute;
@@ -245,7 +245,7 @@
   }
   .slide--dato .dato-linea{
     width:56px;height:5px;
-    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--terr-verde-claro) 100%);
+    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--gob-verde-claro) 100%);
     margin:26px 0 20px;
     border-radius:3px;
     position:relative;
@@ -299,20 +299,20 @@
   <article class="slide slide--portada">
     <header class="slide__header">
       <div class="slide__header-left">
-        <span class="slide__num">03</span>
+        <span class="slide__num">04</span>
         <span class="slide__label">Eje · ADN</span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-road"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-scale-balanced"></i></div>
     </header>
     <div class="slide__foto">
-      <span class="slide__tag">Territorio</span>
-      <h2 class="slide__titulo">Vías que <em>conectan</em>, agua que <em>llega</em>.</h2>
+      <span class="slide__tag">Gobernanza</span>
+      <h2 class="slide__titulo">Aquí <em>decides</em> tú.</h2>
       <ul class="lista-compromisos">
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Vías rurales</strong> intervenidas en todo el cantón</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Obras de <strong>drenaje y alcantarillado</strong></span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Mejora de <strong>puentes y pasos de agua</strong></span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Catastro urbano</strong> actualizado</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Obras de <strong>infraestructura comunitaria</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Cabildos abiertos</strong> en las comunidades</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Plataforma digital</strong> para trámites y seguimiento</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Escuela Municipal de Liderazgo Ciudadano</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Ciudadanos capacitados en gestión pública</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Presupuestos participativos</strong> con las comunidades</span></li>
       </ul>
     </div>
     <div class="slide__footer">
@@ -327,19 +327,19 @@
   <article class="slide slide--dato">
     <header class="slide__header">
       <div class="slide__header-left">
-        <span class="slide__num">03</span>
+        <span class="slide__num">04</span>
         <span class="slide__label">Meta</span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-road"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-scale-balanced"></i></div>
     </header>
     <div class="slide__body">
-      <div class="dato-numero">25</div>
-      <div class="dato-unidad">Km de vías rurales</div>
+      <div class="dato-numero">100</div>
+      <div class="dato-unidad">% trámites en línea</div>
       <div class="dato-linea"></div>
-      <p class="dato-texto">Intervenidas con pavimentación, drenaje y señalización para conectar comunidades.</p>
+      <p class="dato-texto">Digitalizados con seguimiento en tiempo real para que el ciudadano no tenga que ir dos veces.</p>
     </div>
     <div class="slide__footer">
-      <span>Territorio y Hábitat</span>
+      <span>Gobernanza y Servicio</span>
       <span>#Urcuquí · ADN</span>
     </div>
   </article>
