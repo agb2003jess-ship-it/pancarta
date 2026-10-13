@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eje 01 · Desarrollo Económico Productivo · Urcuquí</title>
+<title>Eje 02 · Seguridad y Convivencia Ciudadana · Urcuquí</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
   :root{
     --adn-morado:#5B2C8D;
     --adn-morado-oscuro:#3D1A5C;
-    --adn-morado-claro:#8B5FBF;
     --adn-amarillo:#F5C518;
-    --adn-amarillo-suave:#FDE68A;
     --blanco:#FFFFFF;
     --gris-claro:#F4F2F7;
-    --eje:#F5C518;
+
+    /* Acento de seguridad: azul confianza + verde calma */
+    --seg-azul:#1E5AA8;
+    --seg-azul-oscuro:#0F3A6E;
+    --seg-verde:#2E9E6B;
+    --eje:#1E5AA8;              /* Azul como color del eje 02 */
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -31,7 +34,6 @@
     padding:40px 20px;
   }
 
-  /* ==== Carrusel de 2 slides ==== */
   .carrusel{
     display:flex;
     gap:22px;
@@ -55,13 +57,22 @@
     box-shadow:0 24px 55px rgba(0,0,0,.5);
   }
 
-  /* ---- HEADER común (franja morada ADN) ---- */
+  /* ---- HEADER común (morado ADN + acento azul seguridad) ---- */
   .slide__header{
-    background:var(--adn-morado);
+    background:linear-gradient(90deg, var(--adn-morado) 0%, var(--seg-azul-oscuro) 100%);
     padding:16px 22px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    position:relative;
+  }
+  .slide__header::after{
+    /* Línea de acento amarillo ADN */
+    content:"";
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:3px;
+    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--seg-azul) 100%);
   }
   .slide__header-left{
     display:flex;
@@ -88,26 +99,33 @@
     background:var(--adn-amarillo);
     display:grid;
     place-items:center;
-    color:var(--adn-morado-oscuro);
+    color:var(--seg-azul-oscuro);
     font-size:18px;
+    box-shadow:0 0 0 3px rgba(245,197,24,.25);
   }
 
   /* =====================================================
-     SLIDE 1: PORTADA + COMPROMISOS (todo en uno)
+     SLIDE 1: PORTADA + COMPROMISOS
      ===================================================== */
   .slide--portada .slide__foto{
     position:relative;
     background:
-      linear-gradient(180deg, rgba(91,44,141,.15) 0%, rgba(61,26,92,.92) 60%, rgba(61,26,92,.98) 100%),
-      url('img/fondo-urcuqui.jpg') center/cover;
+      linear-gradient(180deg, rgba(15,58,110,.35) 0%, rgba(61,26,92,.9) 55%, rgba(61,26,92,.98) 100%),
+      url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=900&q=80') center/cover;
     padding:22px 24px;
     display:flex;
     flex-direction:column;
   }
+  .slide--portada .slide__foto::after{
+    content:"";
+    position:absolute;inset:0;
+    background:radial-gradient(circle at 85% 15%, rgba(30,90,168,.35), transparent 50%);
+    pointer-events:none;
+  }
   .slide--portada .slide__tag{
     align-self:flex-start;
-    background:var(--adn-amarillo);
-    color:var(--adn-morado-oscuro);
+    background:var(--eje);
+    color:var(--blanco);
     font-size:9px;
     font-weight:800;
     letter-spacing:2px;
@@ -115,6 +133,9 @@
     border-radius:4px;
     text-transform:uppercase;
     margin-bottom:auto;
+    position:relative;
+    z-index:2;
+    box-shadow:0 4px 12px rgba(30,90,168,.4);
   }
   .slide--portada .slide__titulo{
     font-family:'Archivo Black',sans-serif;
@@ -123,6 +144,9 @@
     color:var(--blanco);
     letter-spacing:-.5px;
     margin-bottom:16px;
+    position:relative;
+    z-index:2;
+    text-shadow:0 2px 12px rgba(0,0,0,.4);
   }
   .slide--portada .slide__titulo em{
     font-style:normal;
@@ -133,6 +157,8 @@
     display:flex;
     flex-direction:column;
     gap:9px;
+    position:relative;
+    z-index:2;
   }
   .slide--portada .lista-compromisos li{
     display:flex;
@@ -140,7 +166,7 @@
     gap:10px;
     font-size:12px;
     font-weight:600;
-    color:rgba(255,255,255,.92);
+    color:rgba(255,255,255,.95);
     line-height:1.4;
   }
   .slide--portada .lista-compromisos li i{
@@ -159,7 +185,7 @@
   .slide__footer{
     background:var(--blanco);
     padding:16px 24px;
-    border-top:5px solid var(--adn-amarillo);
+    border-top:5px solid var(--eje);
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -175,16 +201,30 @@
   }
 
   /* =====================================================
-     SLIDE 2: DATO MEDIBLE (fondo morado, número amarillo)
+     SLIDE 2: DATO MEDIBLE (fondo azul seguridad + morado)
      ===================================================== */
   .slide--dato{
-    background:var(--adn-morado-oscuro);
+    background:
+      radial-gradient(circle at 80% 20%, rgba(30,90,168,.5), transparent 55%),
+      linear-gradient(160deg, var(--seg-azul-oscuro) 0%, var(--adn-morado-oscuro) 100%);
   }
   .slide--dato .slide__body{
     padding:36px 30px 30px;
     display:flex;
     flex-direction:column;
     justify-content:center;
+    position:relative;
+  }
+  .slide--dato .slide__body::before{
+    /* Ícono de escudo tenue como marca de agua */
+    content:"\f3ed";
+    font-family:"Font Awesome 6 Free";
+    font-weight:900;
+    position:absolute;
+    top:30px;right:24px;
+    font-size:110px;
+    color:rgba(255,255,255,.06);
+    pointer-events:none;
   }
   .slide--dato .dato-numero{
     font-family:'Archivo Black',sans-serif;
@@ -192,6 +232,8 @@
     line-height:.88;
     color:var(--adn-amarillo);
     letter-spacing:-6px;
+    position:relative;
+    z-index:2;
   }
   .slide--dato .dato-unidad{
     font-size:14px;
@@ -200,22 +242,29 @@
     color:var(--blanco);
     margin-top:12px;
     text-transform:uppercase;
+    position:relative;
+    z-index:2;
   }
   .slide--dato .dato-linea{
     width:56px;height:5px;
-    background:var(--adn-amarillo);
+    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--seg-verde) 100%);
     margin:26px 0 20px;
+    border-radius:3px;
+    position:relative;
+    z-index:2;
   }
   .slide--dato .dato-texto{
     font-size:14px;
-    color:rgba(255,255,255,.85);
+    color:rgba(255,255,255,.88);
     line-height:1.55;
     max-width:290px;
+    position:relative;
+    z-index:2;
   }
   .slide--dato .slide__footer{
     background:transparent;
     border-top:1px solid rgba(255,255,255,.15);
-    color:rgba(255,255,255,.6);
+    color:rgba(255,255,255,.65);
   }
   .slide--dato .slide__footer span:last-child{
     color:var(--adn-amarillo);
@@ -252,20 +301,20 @@
   <article class="slide slide--portada">
     <header class="slide__header">
       <div class="slide__header-left">
-        <span class="slide__num">01</span>
+        <span class="slide__num">02</span>
         <span class="slide__label">Eje · ADN</span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-chart-line"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-shield-halved"></i></div>
     </header>
     <div class="slide__foto">
-      <span class="slide__tag">Economía</span>
-      <h2 class="slide__titulo">Lo que Urcuquí <em>produce</em>, Urcuquí lo impulsa.</h2>
+      <span class="slide__tag">Seguridad</span>
+      <h2 class="slide__titulo">Caminar tranquilo también es <em>desarrollo</em>.</h2>
       <ul class="lista-compromisos">
-        <li><i class="fa-solid fa-circle-check"></i> <span>Programa <strong>"Urcuquí Produce"</strong> para emprendedores</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Ferias comerciales durante todo el período</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Centro Municipal de Emprendimiento e Innovación</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Fortalecimiento de <strong>rutas turísticas</strong></span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Apoyo directo</strong> a productores agropecuarios</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Cámaras de videovigilancia</strong> instaladas en puntos estratégicos</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Recuperación de <strong>espacios públicos seguros</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Iluminación en zonas priorizadas del cantón</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Programa <strong>"Urcuquí Convive en Paz"</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Ciudadanos capacitados en <strong>cultura de paz</strong></span></li>
       </ul>
     </div>
     <div class="slide__footer">
@@ -280,19 +329,19 @@
   <article class="slide slide--dato">
     <header class="slide__header">
       <div class="slide__header-left">
-        <span class="slide__num">01</span>
+        <span class="slide__num">02</span>
         <span class="slide__label">Meta</span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-chart-line"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-shield-halved"></i></div>
     </header>
     <div class="slide__body">
-      <div class="dato-numero">120</div>
-      <div class="dato-unidad">Emprendedores</div>
+      <div class="dato-numero">80</div>
+      <div class="dato-unidad">Cámaras instaladas</div>
       <div class="dato-linea"></div>
-      <p class="dato-texto">Acompañados con capacitación, capital semilla y acceso a ferias durante todo el período.</p>
+      <p class="dato-texto">En calles, parques y accesos principales, conectadas al sistema municipal de monitoreo.</p>
     </div>
     <div class="slide__footer">
-      <span>Urcuquí Produce</span>
+      <span>Urcuquí Convive en Paz</span>
       <span>#Urcuquí · ADN</span>
     </div>
   </article>
