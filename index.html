@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eje 02 · Seguridad y Convivencia Ciudadana · Urcuquí</title>
+<title>Eje 03 · Territorio y Hábitat · Urcuquí</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -12,13 +12,13 @@
     --adn-morado-oscuro:#3D1A5C;
     --adn-amarillo:#F5C518;
     --blanco:#FFFFFF;
-    --gris-claro:#F4F2F7;
 
-    /* Acento de seguridad: azul confianza + verde calma */
-    --seg-azul:#1E5AA8;
-    --seg-azul-oscuro:#0F3A6E;
-    --seg-verde:#2E9E6B;
-    --eje:#1E5AA8;              /* Azul como color del eje 02 */
+    /* Acento de territorio: terracota + verde tierra */
+    --terr-terracota:#B5622F;
+    --terr-terracota-oscuro:#7A3F1C;
+    --terr-verde:#3E7C4A;
+    --terr-verde-claro:#6FAF7A;
+    --eje:#B5622F;              /* Terracota como color del eje 03 */
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -57,9 +57,9 @@
     box-shadow:0 24px 55px rgba(0,0,0,.5);
   }
 
-  /* ---- HEADER común (morado ADN + acento azul seguridad) ---- */
+  /* ---- HEADER común (morado ADN + acento terracota) ---- */
   .slide__header{
-    background:linear-gradient(90deg, var(--adn-morado) 0%, var(--seg-azul-oscuro) 100%);
+    background:linear-gradient(90deg, var(--adn-morado) 0%, var(--terr-terracota-oscuro) 100%);
     padding:16px 22px;
     display:flex;
     justify-content:space-between;
@@ -67,12 +67,11 @@
     position:relative;
   }
   .slide__header::after{
-    /* Línea de acento amarillo ADN */
     content:"";
     position:absolute;
     bottom:0;left:0;right:0;
     height:3px;
-    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--seg-azul) 100%);
+    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--terr-verde) 100%);
   }
   .slide__header-left{
     display:flex;
@@ -99,7 +98,7 @@
     background:var(--adn-amarillo);
     display:grid;
     place-items:center;
-    color:var(--seg-azul-oscuro);
+    color:var(--terr-terracota-oscuro);
     font-size:18px;
     box-shadow:0 0 0 3px rgba(245,197,24,.25);
   }
@@ -110,8 +109,8 @@
   .slide--portada .slide__foto{
     position:relative;
     background:
-      linear-gradient(180deg, rgba(15,58,110,.35) 0%, rgba(61,26,92,.9) 55%, rgba(61,26,92,.98) 100%),
-      url('img/fondo-seguridad.jpeg') center/cover;
+      linear-gradient(180deg, rgba(122,63,28,.4) 0%, rgba(61,26,92,.9) 55%, rgba(61,26,92,.98) 100%),
+      url('https://images.unsplash.com/photo-1473042904451-00171c69419d?w=900&q=80') center/cover;
     padding:22px 24px;
     display:flex;
     flex-direction:column;
@@ -119,7 +118,7 @@
   .slide--portada .slide__foto::after{
     content:"";
     position:absolute;inset:0;
-    background:radial-gradient(circle at 85% 15%, rgba(30,90,168,.35), transparent 50%);
+    background:radial-gradient(circle at 85% 15%, rgba(181,98,47,.35), transparent 50%);
     pointer-events:none;
   }
   .slide--portada .slide__tag{
@@ -135,7 +134,7 @@
     margin-bottom:auto;
     position:relative;
     z-index:2;
-    box-shadow:0 4px 12px rgba(30,90,168,.4);
+    box-shadow:0 4px 12px rgba(181,98,47,.5);
   }
   .slide--portada .slide__titulo{
     font-family:'Archivo Black',sans-serif;
@@ -146,7 +145,7 @@
     margin-bottom:16px;
     position:relative;
     z-index:2;
-    text-shadow:0 2px 12px rgba(0,0,0,.4);
+    text-shadow:0 2px 12px rgba(0,0,0,.5);
   }
   .slide--portada .slide__titulo em{
     font-style:normal;
@@ -201,12 +200,12 @@
   }
 
   /* =====================================================
-     SLIDE 2: DATO MEDIBLE (fondo azul seguridad + morado)
+     SLIDE 2: DATO MEDIBLE (terracota + verde + morado)
      ===================================================== */
   .slide--dato{
     background:
-      radial-gradient(circle at 80% 20%, rgba(30,90,168,.5), transparent 55%),
-      linear-gradient(160deg, var(--seg-azul-oscuro) 0%, var(--adn-morado-oscuro) 100%);
+      radial-gradient(circle at 80% 20%, rgba(181,98,47,.5), transparent 55%),
+      linear-gradient(160deg, var(--terr-terracota-oscuro) 0%, var(--adn-morado-oscuro) 100%);
   }
   .slide--dato .slide__body{
     padding:36px 30px 30px;
@@ -216,8 +215,7 @@
     position:relative;
   }
   .slide--dato .slide__body::before{
-    /* Ícono de escudo tenue como marca de agua */
-    content:"\f3ed";
+    content:"\f018";           /* road */
     font-family:"Font Awesome 6 Free";
     font-weight:900;
     position:absolute;
@@ -247,7 +245,7 @@
   }
   .slide--dato .dato-linea{
     width:56px;height:5px;
-    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--seg-verde) 100%);
+    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--terr-verde-claro) 100%);
     margin:26px 0 20px;
     border-radius:3px;
     position:relative;
@@ -301,20 +299,20 @@
   <article class="slide slide--portada">
     <header class="slide__header">
       <div class="slide__header-left">
-        <span class="slide__num">02</span>
+        <span class="slide__num">03</span>
         <span class="slide__label">Eje · ADN</span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-road"></i></div>
     </header>
     <div class="slide__foto">
-      <span class="slide__tag">Seguridad</span>
-      <h2 class="slide__titulo">Caminar tranquilo también es <em>desarrollo</em>.</h2>
+      <span class="slide__tag">Territorio</span>
+      <h2 class="slide__titulo">Vías que <em>conectan</em>, agua que <em>llega</em>.</h2>
       <ul class="lista-compromisos">
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Cámaras de videovigilancia</strong> instaladas en puntos estratégicos</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Recuperación de <strong>espacios públicos seguros</strong></span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Iluminación en zonas priorizadas del cantón</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Programa <strong>"Urcuquí Convive en Paz"</strong></span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Ciudadanos capacitados en <strong>cultura de paz</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Vías rurales</strong> intervenidas en todo el cantón</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Obras de <strong>drenaje y alcantarillado</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Mejora de <strong>puentes y pasos de agua</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Catastro urbano</strong> actualizado</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Obras de <strong>infraestructura comunitaria</strong></span></li>
       </ul>
     </div>
     <div class="slide__footer">
@@ -329,19 +327,19 @@
   <article class="slide slide--dato">
     <header class="slide__header">
       <div class="slide__header-left">
-        <span class="slide__num">02</span>
+        <span class="slide__num">03</span>
         <span class="slide__label">Meta</span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-road"></i></div>
     </header>
     <div class="slide__body">
-      <div class="dato-numero">80</div>
-      <div class="dato-unidad">Cámaras instaladas</div>
+      <div class="dato-numero">25</div>
+      <div class="dato-unidad">Km de vías rurales</div>
       <div class="dato-linea"></div>
-      <p class="dato-texto">En calles, parques y accesos principales, conectadas al sistema municipal de monitoreo.</p>
+      <p class="dato-texto">Intervenidas con pavimentación, drenaje y señalización para conectar comunidades.</p>
     </div>
     <div class="slide__footer">
-      <span>Urcuquí Convive en Paz</span>
+      <span>Territorio y Hábitat</span>
       <span>#Urcuquí · ADN</span>
     </div>
   </article>
