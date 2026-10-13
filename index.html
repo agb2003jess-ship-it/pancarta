@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eje 01 · Desarrollo Económico Productivo · Urcuquí</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{
+    --adn-morado:#5B2C8D;
+    --adn-morado-oscuro:#3D1A5C;
+    --adn-morado-claro:#8B5FBF;
+    --adn-amarillo:#F5C518;
+    --adn-amarillo-suave:#FDE68A;
+    --blanco:#FFFFFF;
+    --gris-claro:#F4F2F7;
+    --eje:#F5C518;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  body{
+    font-family:'Inter',sans-serif;
+    background:#1a0f2e;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+  }
+
+  /* ==== Carrusel de 2 slides ==== */
+  .carrusel{
+    display:flex;
+    gap:22px;
+    padding:6px;
+    max-width:100%;
+    overflow-x:auto;
+  }
+  .carrusel::-webkit-scrollbar{height:6px}
+  .carrusel::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:3px}
+  .carrusel::-webkit-scrollbar-thumb{background:var(--adn-amarillo);border-radius:3px}
+
+  .slide{
+    width:420px;
+    height:525px;
+    flex-shrink:0;
+    background:var(--blanco);
+    border-radius:10px;
+    overflow:hidden;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    box-shadow:0 24px 55px rgba(0,0,0,.5);
+  }
+
+  /* ---- HEADER común (franja morada ADN) ---- */
+  .slide__header{
+    background:var(--adn-morado);
+    padding:16px 22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .slide__header-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .slide__num{
+    font-family:'Archivo Black',sans-serif;
+    font-size:28px;
+    color:var(--adn-amarillo);
+    line-height:1;
+    letter-spacing:-1px;
+  }
+  .slide__label{
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:2.5px;
+    color:rgba(255,255,255,.75);
+    text-transform:uppercase;
+  }
+  .slide__icon{
+    width:42px;height:42px;
+    border-radius:50%;
+    background:var(--adn-amarillo);
+    display:grid;
+    place-items:center;
+    color:var(--adn-morado-oscuro);
+    font-size:18px;
+  }
+
+  /* =====================================================
+     SLIDE 1: PORTADA + COMPROMISOS (todo en uno)
+     ===================================================== */
+  .slide--portada .slide__foto{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(91,44,141,.15) 0%, rgba(61,26,92,.92) 60%, rgba(61,26,92,.98) 100%),
+      url('https://images.unsplash.com/photo-1595507207296-a6a5f9e6a4d5?w=900&q=80') center/cover;
+    padding:22px 24px;
+    display:flex;
+    flex-direction:column;
+  }
+  .slide--portada .slide__tag{
+    align-self:flex-start;
+    background:var(--adn-amarillo);
+    color:var(--adn-morado-oscuro);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:2px;
+    padding:6px 12px;
+    border-radius:4px;
+    text-transform:uppercase;
+    margin-bottom:auto;
+  }
+  .slide--portada .slide__titulo{
+    font-family:'Archivo Black',sans-serif;
+    font-size:25px;
+    line-height:1.1;
+    color:var(--blanco);
+    letter-spacing:-.5px;
+    margin-bottom:16px;
+  }
+  .slide--portada .slide__titulo em{
+    font-style:normal;
+    color:var(--adn-amarillo);
+  }
+  .slide--portada .lista-compromisos{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .slide--portada .lista-compromisos li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:12px;
+    font-weight:600;
+    color:rgba(255,255,255,.92);
+    line-height:1.4;
+  }
+  .slide--portada .lista-compromisos li i{
+    color:var(--adn-amarillo);
+    font-size:12px;
+    margin-top:2px;
+    flex-shrink:0;
+    width:14px;
+    text-align:center;
+  }
+  .slide--portada .lista-compromisos li strong{
+    color:var(--adn-amarillo);
+  }
+
+  /* ---- Footer común ---- */
+  .slide__footer{
+    background:var(--blanco);
+    padding:16px 24px;
+    border-top:5px solid var(--adn-amarillo);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:700;
+    color:var(--adn-morado);
+    text-transform:uppercase;
+  }
+  .slide__footer span:last-child{
+    color:var(--adn-amarillo);
+    -webkit-text-stroke:0.5px var(--adn-morado-oscuro);
+  }
+
+  /* =====================================================
+     SLIDE 2: DATO MEDIBLE (fondo morado, número amarillo)
+     ===================================================== */
+  .slide--dato{
+    background:var(--adn-morado-oscuro);
+  }
+  .slide--dato .slide__body{
+    padding:36px 30px 30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .slide--dato .dato-numero{
+    font-family:'Archivo Black',sans-serif;
+    font-size:120px;
+    line-height:.88;
+    color:var(--adn-amarillo);
+    letter-spacing:-6px;
+  }
+  .slide--dato .dato-unidad{
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    color:var(--blanco);
+    margin-top:12px;
+    text-transform:uppercase;
+  }
+  .slide--dato .dato-linea{
+    width:56px;height:5px;
+    background:var(--adn-amarillo);
+    margin:26px 0 20px;
+  }
+  .slide--dato .dato-texto{
+    font-size:14px;
+    color:rgba(255,255,255,.85);
+    line-height:1.55;
+    max-width:290px;
+  }
+  .slide--dato .slide__footer{
+    background:transparent;
+    border-top:1px solid rgba(255,255,255,.15);
+    color:rgba(255,255,255,.6);
+  }
+  .slide--dato .slide__footer span:last-child{
+    color:var(--adn-amarillo);
+    -webkit-text-stroke:0;
+  }
+
+  /* ---- Dots ---- */
+  .dots{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:22px;
+  }
+  .dot{
+    width:8px;height:8px;
+    border-radius:50%;
+    background:rgba(255,255,255,.22);
+    transition:all .3s;
+  }
+  .dot.active{
+    background:var(--adn-amarillo);
+    width:26px;
+    border-radius:4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="carrusel">
+
+  <!-- ============================================================
+       SLIDE 1 · PORTADA + COMPROMISOS
+       ============================================================ -->
+  <article class="slide slide--portada">
+    <header class="slide__header">
+      <div class="slide__header-left">
+        <span class="slide__num">01</span>
+        <span class="slide__label">Eje · ADN</span>
+      </div>
+      <div class="slide__icon"><i class="fa-solid fa-chart-line"></i></div>
+    </header>
+    <div class="slide__foto">
+      <span class="slide__tag">Economía</span>
+      <h2 class="slide__titulo">Lo que Urcuquí <em>produce</em>, Urcuquí lo impulsa.</h2>
+      <ul class="lista-compromisos">
+        <li><i class="fa-solid fa-circle-check"></i> <span>Programa <strong>"Urcuquí Produce"</strong> para emprendedores</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Ferias comerciales durante todo el período</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Centro Municipal de Emprendimiento e Innovación</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Fortalecimiento de <strong>rutas turísticas</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Apoyo directo</strong> a productores agropecuarios</span></li>
+      </ul>
+    </div>
+    <div class="slide__footer">
+      <span>Plan 2027 – 2031</span>
+      <span>#Urcuquí · ADN</span>
+    </div>
+  </article>
+
+  <!-- ============================================================
+       SLIDE 2 · DATO MEDIBLE
+       ============================================================ -->
+  <article class="slide slide--dato">
+    <header class="slide__header">
+      <div class="slide__header-left">
+        <span class="slide__num">01</span>
+        <span class="slide__label">Meta</span>
+      </div>
+      <div class="slide__icon"><i class="fa-solid fa-chart-line"></i></div>
+    </header>
+    <div class="slide__body">
+      <div class="dato-numero">120</div>
+      <div class="dato-unidad">Emprendedores</div>
+      <div class="dato-linea"></div>
+      <p class="dato-texto">Acompañados con capacitación, capital semilla y acceso a ferias durante todo el período.</p>
+    </div>
+    <div class="slide__footer">
+      <span>Urcuquí Produce</span>
+      <span>#Urcuquí · ADN</span>
+    </div>
+  </article>
+
+</div>
+
+<div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+  const carrusel = document.querySelector('.carrusel');
+  const dots = document.querySelectorAll('.dot');
+  carrusel.addEventListener('scroll', () => {
+    const slide = carrusel.querySelector('.slide');
+    const slideWidth = slide.offsetWidth + 22;
+    const index = Math.round(carrusel.scrollLeft / slideWidth);
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  });
+</script>
+
+</body>
+</html>
