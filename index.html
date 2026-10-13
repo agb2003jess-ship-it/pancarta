@@ -3,159 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eje 04 · Gobernanza y Servicio Ciudadano · Urcuquí</title>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Eje 01 · Desarrollo Económico Productivo · Urcuquí</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
   :root{
-    --adn-morado:#5B2C8D;
-    --adn-morado-oscuro:#3D1A5C;
-    --adn-morado-claro:#8B5FBF;
-    --adn-amarillo:#F5C518;
-    --blanco:#FFFFFF;
+    /* === MORADO ADN PROTAGONISTA (suavizado) === */
+    --adn-morado:#8E6BB5;          /* morado principal */
+    --adn-morado-oscuro:#5A4570;   /* morado profundo calmado */
+    --adn-morado-claro:#C4B5FD;    /* lavanda pastel */
+    --adn-morado-suave:#E9E0F5;    /* lavanda casi blanco */
 
-    /* Acento de gobernanza: verde institucional + morado profundo */
-    --gob-verde:#2A7F6F;
-    --gob-verde-oscuro:#16544A;
-    --gob-verde-claro:#5FB3A1;
-    --eje:#2A7F6F;              /* Verde institucional como color del eje 04 */
+    /* === ACENTO DESARROLLO ECONÓMICO (amarillo/dorado suavizado) === */
+    --eco-amarillo:#F5D76E;        /* amarillo cálido */
+    --eco-dorado:#EFD89A;          /* dorado pastel */
+    --eco-ambar:#E0B44A;           /* ámbar suave */
+    --eco-miel:#C99A3D;            /* miel para detalles */
+
+    --blanco:#FFFFFF;
+    --tinta:#1E1B2E;
+    --eje:#F5D76E;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
 
   body{
     font-family:'Inter',sans-serif;
-    background:#1a0f2e;
+    background:
+      radial-gradient(circle at 15% 15%, rgba(142,107,181,.45), transparent 45%),
+      radial-gradient(circle at 85% 20%, rgba(245,215,110,.35), transparent 45%),
+      radial-gradient(circle at 50% 100%, rgba(224,180,74,.30), transparent 50%),
+      linear-gradient(160deg, #1E1B2E 0%, #2D1B4E 100%);
     min-height:100vh;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     padding:40px 20px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* Blobs decorativos */
+  body::before,
+  body::after{
+    content:"";
+    position:fixed;
+    border-radius:50%;
+    filter:blur(80px);
+    pointer-events:none;
+    z-index:0;
+  }
+  body::before{
+    width:400px;height:400px;
+    background:var(--adn-morado);
+    top:-120px;left:-120px;
+    opacity:.35;
+  }
+  body::after{
+    width:350px;height:350px;
+    background:var(--eco-amarillo);
+    bottom:-100px;right:-100px;
+    opacity:.28;
   }
 
   .carrusel{
     display:flex;
-    gap:22px;
-    padding:6px;
+    gap:24px;
+    padding:10px;
     max-width:100%;
     overflow-x:auto;
+    position:relative;
+    z-index:1;
   }
-  .carrusel::-webkit-scrollbar{height:6px}
-  .carrusel::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:3px}
-  .carrusel::-webkit-scrollbar-thumb{background:var(--adn-amarillo);border-radius:3px}
+  .carrusel::-webkit-scrollbar{height:8px}
+  .carrusel::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:4px}
+  .carrusel::-webkit-scrollbar-thumb{
+    background:linear-gradient(90deg, var(--adn-morado), var(--eco-amarillo));
+    border-radius:4px;
+  }
 
   .slide{
     width:420px;
-    height:525px;
+    height:530px;
     flex-shrink:0;
     background:var(--blanco);
-    border-radius:10px;
+    border-radius:28px;
     overflow:hidden;
     display:grid;
     grid-template-rows:auto 1fr auto;
-    box-shadow:0 24px 55px rgba(0,0,0,.5);
+    position:relative;
+    box-shadow:
+      0 30px 60px -15px rgba(90,69,112,.45),
+      0 0 0 1px rgba(255,255,255,.10);
+    transition:transform .4s cubic-bezier(.2,.9,.3,1.4), box-shadow .4s;
+  }
+  .slide:hover{
+    transform:translateY(-6px) rotate(-.5deg);
+    box-shadow:
+      0 40px 70px -15px rgba(142,107,181,.55),
+      0 0 0 1px rgba(255,255,255,.15);
   }
 
-  /* ---- HEADER común (morado ADN + acento verde institucional) ---- */
+  /* ---- HEADER joven (morado protagonista) ---- */
   .slide__header{
-    background:linear-gradient(90deg, var(--adn-morado) 0%, var(--gob-verde-oscuro) 100%);
-    padding:16px 22px;
+    background:linear-gradient(120deg, var(--adn-morado-oscuro) 0%, var(--adn-morado) 55%, var(--eco-ambar) 100%);
+    padding:18px 24px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     position:relative;
+    overflow:hidden;
+  }
+  .slide__header::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 20% 120%, rgba(196,181,253,.45), transparent 50%),
+      radial-gradient(circle at 90% -20%, rgba(245,215,110,.35), transparent 50%);
+    pointer-events:none;
   }
   .slide__header::after{
     content:"";
     position:absolute;
     bottom:0;left:0;right:0;
-    height:3px;
-    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--gob-verde-claro) 100%);
+    height:4px;
+    background:linear-gradient(90deg, var(--eco-amarillo) 0%, var(--adn-morado-claro) 50%, var(--eco-dorado) 100%);
   }
   .slide__header-left{
     display:flex;
     align-items:center;
     gap:12px;
+    position:relative;
+    z-index:2;
   }
   .slide__num{
     font-family:'Archivo Black',sans-serif;
-    font-size:28px;
-    color:var(--adn-amarillo);
+    font-size:30px;
+    color:var(--eco-amarillo);
     line-height:1;
-    letter-spacing:-1px;
+    letter-spacing:-1.5px;
+    text-shadow:0 2px 0 rgba(0,0,0,.15);
   }
   .slide__label{
     font-size:9px;
     font-weight:800;
     letter-spacing:2.5px;
-    color:rgba(255,255,255,.75);
+    color:rgba(255,255,255,.90);
     text-transform:uppercase;
   }
   .slide__icon{
-    width:42px;height:42px;
-    border-radius:50%;
-    background:var(--adn-amarillo);
+    width:46px;height:46px;
+    border-radius:16px;
+    background:linear-gradient(135deg, var(--eco-amarillo), var(--eco-dorado));
     display:grid;
     place-items:center;
-    color:var(--gob-verde-oscuro);
-    font-size:18px;
-    box-shadow:0 0 0 3px rgba(245,197,24,.25);
+    color:var(--adn-morado-oscuro);
+    font-size:20px;
+    position:relative;
+    z-index:2;
+    transform:rotate(-6deg);
+    box-shadow:0 6px 0 rgba(0,0,0,.18);
   }
 
   /* =====================================================
-     SLIDE 1: PORTADA + COMPROMISOS
+     SLIDE 1: PORTADA
      ===================================================== */
   .slide--portada .slide__foto{
     position:relative;
     background:
-      linear-gradient(180deg, rgba(22,84,74,.4) 0%, rgba(61,26,92,.9) 55%, rgba(61,26,92,.98) 100%),
-      url('img/fondo-gobernanza.jpeg') center/cover;
-    padding:22px 24px;
+      linear-gradient(180deg, rgba(142,107,181,.35) 0%, rgba(90,69,112,.80) 55%, rgba(30,27,46,.96) 100%),
+      url('https://images.unsplash.com/photo-1595507207296-a6a5f9e6a4d5?w=900&q=80') center/cover;
+    padding:24px 26px;
     display:flex;
     flex-direction:column;
   }
   .slide--portada .slide__foto::after{
     content:"";
     position:absolute;inset:0;
-    background:radial-gradient(circle at 85% 15%, rgba(42,127,111,.35), transparent 50%);
+    background:
+      radial-gradient(circle at 85% 15%, rgba(196,181,253,.40), transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(245,215,110,.30), transparent 50%);
     pointer-events:none;
   }
   .slide--portada .slide__tag{
     align-self:flex-start;
-    background:var(--eje);
+    background:linear-gradient(135deg, var(--adn-morado), var(--adn-morado-oscuro));
     color:var(--blanco);
-    font-size:9px;
-    font-weight:800;
+    font-size:10px;
+    font-weight:900;
     letter-spacing:2px;
-    padding:6px 12px;
-    border-radius:4px;
+    padding:8px 14px;
+    border-radius:999px;
     text-transform:uppercase;
     margin-bottom:auto;
     position:relative;
     z-index:2;
-    box-shadow:0 4px 12px rgba(42,127,111,.5);
+    transform:rotate(-3deg);
+    box-shadow:0 6px 0 rgba(90,69,112,.65);
   }
   .slide--portada .slide__titulo{
     font-family:'Archivo Black',sans-serif;
-    font-size:25px;
-    line-height:1.1;
+    font-size:26px;
+    line-height:1.05;
     color:var(--blanco);
-    letter-spacing:-.5px;
-    margin-bottom:16px;
+    letter-spacing:-.8px;
+    margin-bottom:18px;
     position:relative;
     z-index:2;
-    text-shadow:0 2px 12px rgba(0,0,0,.5);
+    text-shadow:0 3px 0 rgba(90,69,112,.55), 0 8px 24px rgba(0,0,0,.45);
   }
   .slide--portada .slide__titulo em{
     font-style:normal;
-    color:var(--adn-amarillo);
+    color:var(--eco-amarillo);
+    display:inline-block;
+    transform:rotate(-2deg);
   }
   .slide--portada .lista-compromisos{
     list-style:none;
     display:flex;
     flex-direction:column;
-    gap:9px;
+    gap:10px;
     position:relative;
     z-index:2;
   }
@@ -165,47 +234,64 @@
     gap:10px;
     font-size:12px;
     font-weight:600;
-    color:rgba(255,255,255,.95);
+    color:rgba(255,255,255,.96);
     line-height:1.4;
+    background:rgba(142,107,181,.15);
+    backdrop-filter:blur(6px);
+    padding:7px 10px;
+    border-radius:10px;
+    border-left:3px solid var(--adn-morado-claro);
+    transition:transform .25s, background .25s;
+  }
+  .slide--portada .lista-compromisos li:hover{
+    transform:translateX(4px);
+    background:rgba(142,107,181,.25);
   }
   .slide--portada .lista-compromisos li i{
-    color:var(--adn-amarillo);
-    font-size:12px;
+    color:var(--adn-morado-claro);
+    font-size:13px;
     margin-top:2px;
     flex-shrink:0;
     width:14px;
     text-align:center;
   }
   .slide--portada .lista-compromisos li strong{
-    color:var(--adn-amarillo);
+    color:var(--eco-amarillo);
   }
 
-  /* ---- Footer común ---- */
+  /* ---- Footer joven ---- */
   .slide__footer{
-    background:var(--blanco);
+    background:linear-gradient(90deg, #FAF8FF, #F0ECFA);
     padding:16px 24px;
-    border-top:5px solid var(--eje);
+    border-top:5px solid transparent;
+    border-image:linear-gradient(90deg, var(--adn-morado), var(--eco-ambar), var(--adn-morado-claro)) 1;
     display:flex;
     justify-content:space-between;
     align-items:center;
     font-size:10px;
     letter-spacing:2px;
-    font-weight:700;
-    color:var(--adn-morado);
+    font-weight:800;
+    color:var(--adn-morado-oscuro);
     text-transform:uppercase;
   }
   .slide__footer span:last-child{
-    color:var(--adn-amarillo);
-    -webkit-text-stroke:0.5px var(--adn-morado-oscuro);
+    color:var(--tinta);
+    background:linear-gradient(135deg, var(--eco-amarillo), var(--adn-morado-claro));
+    padding:5px 10px;
+    border-radius:999px;
+    letter-spacing:1.5px;
+    transform:rotate(-2deg);
+    box-shadow:0 3px 0 rgba(90,69,112,.45);
   }
 
   /* =====================================================
-     SLIDE 2: DATO MEDIBLE (verde institucional + morado)
+     SLIDE 2: DATO MEDIBLE (morado dominante)
      ===================================================== */
   .slide--dato{
     background:
-      radial-gradient(circle at 80% 20%, rgba(42,127,111,.5), transparent 55%),
-      linear-gradient(160deg, var(--gob-verde-oscuro) 0%, var(--adn-morado-oscuro) 100%);
+      radial-gradient(circle at 80% 20%, rgba(196,181,253,.55), transparent 55%),
+      radial-gradient(circle at 15% 85%, rgba(245,215,110,.35), transparent 55%),
+      linear-gradient(160deg, var(--adn-morado-oscuro) 0%, var(--adn-morado) 55%, var(--adn-morado-oscuro) 100%);
   }
   .slide--dato .slide__body{
     padding:36px 30px 30px;
@@ -215,45 +301,52 @@
     position:relative;
   }
   .slide--dato .slide__body::before{
-    content:"\f24e";           /* balance-scale */
+    content:"\f201";           /* chart-line */
     font-family:"Font Awesome 6 Free";
     font-weight:900;
     position:absolute;
     top:30px;right:24px;
-    font-size:110px;
-    color:rgba(255,255,255,.06);
+    font-size:130px;
+    color:rgba(255,255,255,.10);
     pointer-events:none;
+    transform:rotate(-15deg);
   }
   .slide--dato .dato-numero{
     font-family:'Archivo Black',sans-serif;
-    font-size:120px;
-    line-height:.88;
-    color:var(--adn-amarillo);
-    letter-spacing:-6px;
+    font-size:132px;
+    line-height:.85;
+    background:linear-gradient(135deg, var(--eco-amarillo) 0%, var(--adn-morado-claro) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    letter-spacing:-7px;
     position:relative;
     z-index:2;
+    filter:drop-shadow(0 6px 0 rgba(0,0,0,.25)) drop-shadow(0 12px 30px rgba(245,215,110,.35));
   }
   .slide--dato .dato-unidad{
     font-size:14px;
-    font-weight:700;
+    font-weight:800;
     letter-spacing:3px;
     color:var(--blanco);
-    margin-top:12px;
+    margin-top:14px;
     text-transform:uppercase;
     position:relative;
     z-index:2;
+    display:inline-block;
   }
   .slide--dato .dato-linea{
-    width:56px;height:5px;
-    background:linear-gradient(90deg, var(--adn-amarillo) 0%, var(--gob-verde-claro) 100%);
+    width:64px;height:6px;
+    background:linear-gradient(90deg, var(--eco-amarillo) 0%, var(--adn-morado-claro) 50%, var(--eco-dorado) 100%);
     margin:26px 0 20px;
-    border-radius:3px;
+    border-radius:999px;
     position:relative;
     z-index:2;
+    box-shadow:0 0 20px rgba(196,181,253,.55);
   }
   .slide--dato .dato-texto{
     font-size:14px;
-    color:rgba(255,255,255,.88);
+    color:rgba(255,255,255,.92);
     line-height:1.55;
     max-width:290px;
     position:relative;
@@ -261,31 +354,37 @@
   }
   .slide--dato .slide__footer{
     background:transparent;
-    border-top:1px solid rgba(255,255,255,.15);
-    color:rgba(255,255,255,.65);
+    border-top:1px solid rgba(255,255,255,.20);
+    border-image:none;
+    color:rgba(255,255,255,.75);
   }
   .slide--dato .slide__footer span:last-child{
-    color:var(--adn-amarillo);
-    -webkit-text-stroke:0;
+    color:var(--eco-amarillo);
+    background:rgba(142,107,181,.25);
+    box-shadow:none;
+    transform:rotate(-2deg);
   }
 
-  /* ---- Dots ---- */
+  /* ---- Dots joven ---- */
   .dots{
     display:flex;
     justify-content:center;
-    gap:8px;
-    margin-top:22px;
+    gap:10px;
+    margin-top:26px;
+    position:relative;
+    z-index:1;
   }
   .dot{
-    width:8px;height:8px;
+    width:10px;height:10px;
     border-radius:50%;
-    background:rgba(255,255,255,.22);
-    transition:all .3s;
+    background:rgba(255,255,255,.25);
+    transition:all .3s cubic-bezier(.2,.9,.3,1.4);
   }
   .dot.active{
-    background:var(--adn-amarillo);
-    width:26px;
-    border-radius:4px;
+    background:linear-gradient(135deg, var(--eco-amarillo), var(--adn-morado-claro));
+    width:32px;
+    border-radius:999px;
+    box-shadow:0 0 14px rgba(245,215,110,.55);
   }
 </style>
 </head>
@@ -299,25 +398,25 @@
   <article class="slide slide--portada">
     <header class="slide__header">
       <div class="slide__header-left">
-        <span class="slide__num">04</span>
-        <span class="slide__label">Eje · ADN</span>
+        <span class="slide__num"></span>
+        <span class="slide__label"></span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-scale-balanced"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-chart-line"></i></div>
     </header>
     <div class="slide__foto">
-      <span class="slide__tag">Gobernanza</span>
-      <h2 class="slide__titulo">Aquí <em>decides</em> tú.</h2>
+      <span class="slide__tag">Economía</span>
+      <h2 class="slide__titulo">Lo que Urcuquí <em>produce</em>, Urcuquí lo impulsa.</h2>
       <ul class="lista-compromisos">
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Cabildos abiertos</strong> en las comunidades</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Plataforma digital</strong> para trámites y seguimiento</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Escuela Municipal de Liderazgo Ciudadano</strong></span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Ciudadanos capacitados en gestión pública</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Presupuestos participativos</strong> con las comunidades</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Programa <strong>"Urcuquí Produce"</strong> para emprendedores</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Ferias comerciales durante todo el período</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Centro Municipal de Emprendimiento e Innovación</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Fortalecimiento de <strong>rutas turísticas</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Apoyo directo</strong> a productores agropecuarios</span></li>
       </ul>
     </div>
     <div class="slide__footer">
-      <span>Plan 2027 – 2031</span>
-      <span>#Urcuquí · ADN</span>
+      <span>Lizbeth Estrada</span>
+      <span>#Urcuquí</span>
     </div>
   </article>
 
@@ -327,19 +426,19 @@
   <article class="slide slide--dato">
     <header class="slide__header">
       <div class="slide__header-left">
-        <span class="slide__num">04</span>
+        <span class="slide__num">01</span>
         <span class="slide__label">Meta</span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-scale-balanced"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-chart-line"></i></div>
     </header>
     <div class="slide__body">
-      <div class="dato-numero">100</div>
-      <div class="dato-unidad">% trámites en línea</div>
+      <div class="dato-numero">120</div>
+      <div class="dato-unidad">Emprendedores</div>
       <div class="dato-linea"></div>
-      <p class="dato-texto">Digitalizados con seguimiento en tiempo real para que el ciudadano no tenga que ir dos veces.</p>
+      <p class="dato-texto">Acompañados con capacitación, capital semilla y acceso a ferias durante todo el período.</p>
     </div>
     <div class="slide__footer">
-      <span>Gobernanza y Servicio</span>
+      <span>Urcuquí Produce</span>
       <span>#Urcuquí · ADN</span>
     </div>
   </article>
@@ -356,7 +455,7 @@
   const dots = document.querySelectorAll('.dot');
   carrusel.addEventListener('scroll', () => {
     const slide = carrusel.querySelector('.slide');
-    const slideWidth = slide.offsetWidth + 22;
+    const slideWidth = slide.offsetWidth + 24;
     const index = Math.round(carrusel.scrollLeft / slideWidth);
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
   });
