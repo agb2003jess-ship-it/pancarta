@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eje 03 · Territorio y Hábitat · Urcuquí</title>
+<title>Eje 04 · Gobernanza y Servicio Ciudadano · Urcuquí</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -14,15 +14,14 @@
     --adn-morado-claro:#C4B5FD;
     --adn-morado-suave:#E9E0F5;
 
-    /* === ACENTO TERRITORIO (terracota + verde tierra suavizados) === */
-    --terr-terracota:#C97B4A;      /* antes #B5622F → más claro */
-    --terr-terracota-oscuro:#9A5730; /* antes #7A3F1C → suave */
-    --terr-verde:#6FAF7A;          /* verde tierra claro */
-    --terr-verde-claro:#A8D4AF;    /* verde pastel */
+    /* === ACENTO GOBERNANZA (verde institucional suavizado) === */
+    --gob-verde:#5FB3A1;           /* antes #2A7F6F → más claro */
+    --gob-verde-oscuro:#3D8A78;    /* antes #16544A → suave */
+    --gob-verde-claro:#A8DDD0;     /* verde pastel */
 
     --blanco:#FFFFFF;
     --tinta:#1E1B2E;
-    --eje:#C97B4A;
+    --eje:#5FB3A1;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -31,8 +30,8 @@
     font-family:'Inter',sans-serif;
     background:
       radial-gradient(circle at 15% 15%, rgba(142,107,181,.45), transparent 45%),
-      radial-gradient(circle at 85% 20%, rgba(201,123,74,.35), transparent 45%),
-      radial-gradient(circle at 50% 100%, rgba(111,175,122,.30), transparent 50%),
+      radial-gradient(circle at 85% 20%, rgba(95,179,161,.40), transparent 45%),
+      radial-gradient(circle at 50% 100%, rgba(168,221,208,.30), transparent 50%),
       linear-gradient(160deg, #1E1B2E 0%, #2D1B4E 100%);
     min-height:100vh;
     display:flex;
@@ -61,9 +60,9 @@
   }
   body::after{
     width:350px;height:350px;
-    background:var(--terr-terracota);
+    background:var(--gob-verde);
     bottom:-100px;right:-100px;
-    opacity:.28;
+    opacity:.30;
   }
 
   .carrusel{
@@ -78,7 +77,7 @@
   .carrusel::-webkit-scrollbar{height:8px}
   .carrusel::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:4px}
   .carrusel::-webkit-scrollbar-thumb{
-    background:linear-gradient(90deg, var(--adn-morado), var(--terr-terracota));
+    background:linear-gradient(90deg, var(--adn-morado), var(--gob-verde));
     border-radius:4px;
   }
 
@@ -106,7 +105,7 @@
 
   /* ---- HEADER joven ---- */
   .slide__header{
-    background:linear-gradient(120deg, var(--adn-morado-oscuro) 0%, var(--adn-morado) 55%, var(--terr-terracota) 100%);
+    background:linear-gradient(120deg, var(--adn-morado-oscuro) 0%, var(--adn-morado) 55%, var(--gob-verde) 100%);
     padding:18px 24px;
     display:flex;
     justify-content:space-between;
@@ -120,7 +119,7 @@
     inset:0;
     background:
       radial-gradient(circle at 20% 120%, rgba(196,181,253,.45), transparent 50%),
-      radial-gradient(circle at 90% -20%, rgba(168,212,175,.35), transparent 50%);
+      radial-gradient(circle at 90% -20%, rgba(168,221,208,.35), transparent 50%);
     pointer-events:none;
   }
   .slide__header::after{
@@ -128,7 +127,7 @@
     position:absolute;
     bottom:0;left:0;right:0;
     height:4px;
-    background:linear-gradient(90deg, var(--adn-morado-claro) 0%, var(--terr-verde-claro) 50%, var(--terr-terracota) 100%);
+    background:linear-gradient(90deg, var(--adn-morado-claro) 0%, var(--gob-verde-claro) 50%, var(--gob-verde) 100%);
   }
   .slide__header-left{
     display:flex;
@@ -155,7 +154,7 @@
   .slide__icon{
     width:46px;height:46px;
     border-radius:16px;
-    background:linear-gradient(135deg, var(--adn-morado-claro), var(--terr-verde-claro));
+    background:linear-gradient(135deg, var(--adn-morado-claro), var(--gob-verde-claro));
     display:grid;
     place-items:center;
     color:var(--adn-morado-oscuro);
@@ -172,8 +171,8 @@
   .slide--portada .slide__foto{
     position:relative;
     background:
-      linear-gradient(180deg, rgba(154,87,48,.40) 0%, rgba(90,69,112,.80) 55%, rgba(30,27,46,.96) 100%),
-      url('img/fondo-via.png') center/cover;
+      linear-gradient(180deg, rgba(61,138,120,.40) 0%, rgba(90,69,112,.80) 55%, rgba(30,27,46,.96) 100%),
+      url('img/fondo-gobernanza.jpeg') center/cover;
     padding:24px 26px;
     display:flex;
     flex-direction:column;
@@ -183,7 +182,7 @@
     position:absolute;inset:0;
     background:
       radial-gradient(circle at 85% 15%, rgba(196,181,253,.40), transparent 50%),
-      radial-gradient(circle at 10% 90%, rgba(168,212,175,.30), transparent 50%);
+      radial-gradient(circle at 10% 90%, rgba(168,221,208,.30), transparent 50%);
     pointer-events:none;
   }
   .slide--portada .slide__tag{
@@ -215,7 +214,7 @@
   }
   .slide--portada .slide__titulo em{
     font-style:normal;
-    color:var(--terr-verde-claro);
+    color:var(--gob-verde-claro);
     display:inline-block;
     transform:rotate(-2deg);
   }
@@ -255,7 +254,7 @@
     text-align:center;
   }
   .slide--portada .lista-compromisos li strong{
-    color:var(--terr-verde-claro);
+    color:var(--gob-verde-claro);
   }
 
   /* ---- Footer ---- */
@@ -263,7 +262,7 @@
     background:linear-gradient(90deg, #FAF8FF, #F0ECFA);
     padding:16px 24px;
     border-top:5px solid transparent;
-    border-image:linear-gradient(90deg, var(--adn-morado), var(--terr-terracota), var(--terr-verde)) 1;
+    border-image:linear-gradient(90deg, var(--adn-morado), var(--gob-verde), var(--adn-morado-claro)) 1;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -275,7 +274,7 @@
   }
   .slide__footer span:last-child{
     color:var(--tinta);
-    background:linear-gradient(135deg, var(--adn-morado-claro), var(--terr-verde-claro));
+    background:linear-gradient(135deg, var(--adn-morado-claro), var(--gob-verde-claro));
     padding:5px 10px;
     border-radius:999px;
     letter-spacing:1.5px;
@@ -289,8 +288,8 @@
   .slide--dato{
     background:
       radial-gradient(circle at 80% 20%, rgba(196,181,253,.55), transparent 55%),
-      radial-gradient(circle at 15% 85%, rgba(168,212,175,.35), transparent 55%),
-      linear-gradient(160deg, var(--adn-morado-oscuro) 0%, var(--terr-terracota-oscuro) 55%, var(--adn-morado-oscuro) 100%);
+      radial-gradient(circle at 15% 85%, rgba(168,221,208,.35), transparent 55%),
+      linear-gradient(160deg, var(--adn-morado-oscuro) 0%, var(--gob-verde-oscuro) 55%, var(--adn-morado-oscuro) 100%);
   }
   .slide--dato .slide__body{
     padding:36px 30px 30px;
@@ -300,7 +299,7 @@
     position:relative;
   }
   .slide--dato .slide__body::before{
-    content:"\f018";           /* road */
+    content:"\f24e";           /* balance-scale */
     font-family:"Font Awesome 6 Free";
     font-weight:900;
     position:absolute;
@@ -314,7 +313,7 @@
     font-family:'Archivo Black',sans-serif;
     font-size:132px;
     line-height:.85;
-    background:linear-gradient(135deg, var(--adn-morado-claro) 0%, var(--terr-verde-claro) 100%);
+    background:linear-gradient(135deg, var(--adn-morado-claro) 0%, var(--gob-verde-claro) 100%);
     -webkit-background-clip:text;
     background-clip:text;
     -webkit-text-fill-color:transparent;
@@ -336,7 +335,7 @@
   }
   .slide--dato .dato-linea{
     width:64px;height:6px;
-    background:linear-gradient(90deg, var(--adn-morado-claro) 0%, var(--terr-verde-claro) 50%, var(--terr-terracota) 100%);
+    background:linear-gradient(90deg, var(--adn-morado-claro) 0%, var(--gob-verde-claro) 50%, var(--gob-verde) 100%);
     margin:26px 0 20px;
     border-radius:999px;
     position:relative;
@@ -358,7 +357,7 @@
     color:rgba(255,255,255,.75);
   }
   .slide--dato .slide__footer span:last-child{
-    color:var(--terr-verde-claro);
+    color:var(--gob-verde-claro);
     background:rgba(142,107,181,.25);
     box-shadow:none;
     transform:rotate(-2deg);
@@ -380,7 +379,7 @@
     transition:all .3s cubic-bezier(.2,.9,.3,1.4);
   }
   .dot.active{
-    background:linear-gradient(135deg, var(--adn-morado-claro), var(--terr-verde-claro));
+    background:linear-gradient(135deg, var(--adn-morado-claro), var(--gob-verde-claro));
     width:32px;
     border-radius:999px;
     box-shadow:0 0 14px rgba(196,181,253,.55);
@@ -398,17 +397,17 @@
         <span class="slide__num"></span>
         <span class="slide__label"></span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-road"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-scale-balanced"></i></div>
     </header>
     <div class="slide__foto">
-      <span class="slide__tag">Territorio</span>
-      <h2 class="slide__titulo">Vías que <em>conectan</em>, agua que <em>llega</em>.</h2>
+      <span class="slide__tag">Gobernanza</span>
+      <h2 class="slide__titulo">Aquí <em>decides</em> tú.</h2>
       <ul class="lista-compromisos">
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Vías rurales</strong> intervenidas en todo el cantón</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Obras de <strong>drenaje y alcantarillado</strong></span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Mejora de <strong>puentes y pasos de agua</strong></span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Catastro urbano</strong> actualizado</span></li>
-        <li><i class="fa-solid fa-circle-check"></i> <span>Obras de <strong>infraestructura comunitaria</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Cabildos abiertos</strong> en las comunidades</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Plataforma digital</strong> para trámites y seguimiento</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Escuela Municipal de Liderazgo Ciudadano</strong></span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span>Ciudadanos capacitados en gestión pública</span></li>
+        <li><i class="fa-solid fa-circle-check"></i> <span><strong>Presupuestos participativos</strong> con las comunidades</span></li>
       </ul>
     </div>
     <div class="slide__footer">
@@ -421,19 +420,19 @@
   <article class="slide slide--dato">
     <header class="slide__header">
       <div class="slide__header-left">
-        <span class="slide__num">03</span>
+        <span class="slide__num">04</span>
         <span class="slide__label">Meta</span>
       </div>
-      <div class="slide__icon"><i class="fa-solid fa-road"></i></div>
+      <div class="slide__icon"><i class="fa-solid fa-scale-balanced"></i></div>
     </header>
     <div class="slide__body">
-      <div class="dato-numero">25</div>
-      <div class="dato-unidad">Km de vías rurales</div>
+      <div class="dato-numero">100</div>
+      <div class="dato-unidad">% trámites en línea</div>
       <div class="dato-linea"></div>
-      <p class="dato-texto">Intervenidas con pavimentación, drenaje y señalización para conectar comunidades.</p>
+      <p class="dato-texto">Digitalizados con seguimiento en tiempo real para que el ciudadano no tenga que ir dos veces.</p>
     </div>
     <div class="slide__footer">
-      <span>Territorio y Hábitat</span>
+      <span>Gobernanza y Servicio</span>
       <span>#Urcuquí · ADN</span>
     </div>
   </article>
@@ -457,4 +456,4 @@
 </script>
 
 </body>
-</html>
+</html>a
